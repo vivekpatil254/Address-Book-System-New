@@ -39,5 +39,14 @@ public class Contact {
               System.out.println("Zip code            :    "+zip);
               System.out.println("Contact Number      :    "+phoneNumber);
            }
+           public boolean search(String name)
+           {
+               if(this.firstName.equalsIgnoreCase(name))
+                  return true;
+               else
+                  return false;
+           }
+
+
 
 }
