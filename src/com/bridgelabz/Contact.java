@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Contact {
     String firstName,state,lastName,address,city,email;
     long zip,phoneNumber;
-     Contact()
+     public void getdata()
         {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter first name     :    ");
