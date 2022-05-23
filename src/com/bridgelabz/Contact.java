@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Contact {
     String firstName,state,lastName,address,city,email;
-    long zip,phoneNumber;
+    long zip,phoneNumber,addressBookIndex;
      public void getdata()
         {
         Scanner scanner = new Scanner(System.in);
