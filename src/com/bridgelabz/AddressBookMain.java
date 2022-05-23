@@ -8,8 +8,8 @@ public class AddressBookMain {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program ...");
-        Contact contact =new Contact();
-        int choice,count=0;
+        Contact contact = new Contact();
+        int choice, count = 0;
         List<Contact> addressBook = new ArrayList<>();
 
         do {
@@ -19,7 +19,8 @@ public class AddressBookMain {
             System.out.println("1. Add new contact ");
             System.out.println("2. Display all contact from address book ");
             System.out.println("3. Edit  contact by name ");
-            System.out.println("4. exit ");
+            System.out.println("4. Delete contact by name ");
+            System.out.println("5. exit ");
             System.out.println("Enter your choice : ");
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
@@ -32,13 +33,13 @@ public class AddressBookMain {
                     break;
                 case 2:
                     for (int i = 0; i < count; i++) {
-                        System.out.println("count "+count+"\n i "+i);
-                         addressBook.get(i).display();
-                       // contact.display();
+                        System.out.println("count " + count + "\n i " + i);
+                        addressBook.get(i).display();
+                        // contact.display();
                     }
                     break;
                 case 3:
-                    if(count==0)
+                    if (count == 0)
                         System.out.println("The address book is empty ...");
                     else {
                         boolean flag = false;
@@ -61,9 +62,34 @@ public class AddressBookMain {
                                 System.out.println("the person data is not avaialable for entered name...");
                         }
                     }
-                case 4 :
+                case 4:
+                    if (count == 0)
+                        System.out.println("The address book is empty ...");
+                    else {
+                        boolean flag = false;
+                        String name;
+                        System.out.println("Enter person name to edit the contact");
+                        name = scanner.next();
+                        for (int i = 0; i < count; i++) {
+                            contact = addressBook.get(i);
+                            flag = contact.search(name);
+                            if (flag == true) {
+                                System.out.println("the previous data for " + name);
+                                addressBook.remove(contact);
+                                count--;
+                                System.out.println("data edited successfully...");
+                                break;
+                            }
+                            if (flag == false)
+                                System.out.println("the person data is not avaialable for entered name...");
+                        }
+                    }
+
+                case 5:
                     System.exit(0);
             }
-        }while(true);
-    }
+
+            }while (true) ;
+        }
+
 }
